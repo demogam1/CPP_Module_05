@@ -1,0 +1,19 @@
+NAME=Bureaucrat
+
+CC=clang++
+
+FLAG=-Wall -Werror -Wextra -std=c++98
+
+SRC=Bureaucrat.cpp main.cpp
+
+all:$(NAME)
+
+$(NAME):
+	$(CC) $(FLAG) $(SRC) -o $(NAME)
+
+fclean:
+	rm $(NAME)
+
+re: fclean all
+
+.Phony : all fclean
