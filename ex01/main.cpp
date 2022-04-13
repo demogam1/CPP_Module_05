@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:20 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/06 18:57:14 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/13 04:01:25 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 int main()
 {
-    try 
-    {
-        Bureaucrat toto("toto", 160);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    return 1;
+    Bureaucrat toto("toto", 1);
+    Form papier("papier", 1, 3);
+    papier.beSigned(toto);
+    toto.signForm(papier);
 }

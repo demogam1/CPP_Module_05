@@ -6,17 +6,13 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/10 03:23:58 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/13 04:00:41 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 /*------------------Forme canonique------------------*/
-Bureaucrat::Bureaucrat()
-{
-    std::cout << "Bureaucrat Constructor Called" << std::endl;
-}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &p)
 {
@@ -57,22 +53,27 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::upGrade()
 {
-    if (this->grade++ > 150)
-    {
-        throw(Bureaucrat::GradeTooLowException());
-    }
-    else
-        this->grade++;
+    this->grade--;
+    if (this->grade < 1)
+        throw(Bureaucrat::GradeTooHighException());
 }
 
 void Bureaucrat::downGrade()
 {
-    if (this->grade--)
+    this->grade++;
+    if (this->grade > 150)
+        throw(Bureaucrat::GradeTooLowException());
+}
+
+void Bureaucrat::signForm(Form &p)
+{
+    if (p.getSign() == true)
+        std::cout << this->name << " signed " << p.getName() << std::endl;
+    else if (this->getGrade() > p.getReqExec())
     {
-        throw(Bureaucrat::GradeTooHighException());
+        std::cout << this->name << " couldn't sign " << p.getName() << " because ";
+        std::cout << "Grade too low" << std::endl;
     }
-    else
-        this->grade--;
 }
 
 std::ostream &operator<<(std::ostream &b, Bureaucrat const &c)

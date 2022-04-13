@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:14:02 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/10 03:22:31 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/12 03:55:12 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*------------------Forme canonique------------------*/
 
-// Form::Form() <---- doit implementer un constructeur par defaut ???
+// Form::Form() <---- doit on implementer un constructeur par defaut ???
 // {
 //     std::cout << "Form Constructor Called" << std::endl;
 // }
 
-Form::Form(const Form &p):req_exec(p.req_exec),req_sign(p.req_sign),name(p.name)
+Form::Form(const Form &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
 {
     this->sign = p.sign;
 }
@@ -66,6 +66,14 @@ int Form::getReqSign() const
 int Form::getReqExec() const
 {
     return this->req_exec;    
+}
+
+void Form::beSigned(Bureaucrat &p)
+{
+    if (p.getGrade() <= this->req_sign)
+        this->sign = true;
+    else
+        throw(Form::GradeTooLowException());
 }
 
 std::ostream &operator<<(std::ostream &b, Form const &c)

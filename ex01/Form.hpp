@@ -6,11 +6,16 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:10:28 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/10 03:18:41 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/12 03:57:28 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include <iostream>
+#include <exception>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -19,6 +24,11 @@ class Form
         Form(const Form &p);
         Form &operator=(const Form &p);
         ~Form();
+        /* END */
+        /*-----------------*/
+        /* Constructeur */ 
+        void beSigned(Bureaucrat &p);
+        Form(std::string str_name, int sign, int execute);
         /* END */
         class GradeTooHighException : public std::exception
         {
@@ -36,17 +46,15 @@ class Form
                     return("Erreur grade too low!");
                 }
         };
-        Form(std::string str_name, int sign, int execute);
         std::string getName() const;
         bool getSign() const;
         int getReqSign() const;
         int getReqExec() const;
     private:
-        Form();
         const std::string name;
         bool sign;
         const int req_sign;
         const int req_exec;
 };
 
-std::ostream &operator<<(std::ostream &b, Bureaucrat const &c);
+std::ostream &operator<<(std::ostream &b, Form const &c);

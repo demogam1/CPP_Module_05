@@ -6,13 +6,17 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:17 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/06 18:53:15 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/12 03:57:18 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <exception>
 #include <iostream>
+#include <exception>
+#include "Form.hpp"
+
+
+class Form;
 
 class Bureaucrat
 {
@@ -41,10 +45,10 @@ class Bureaucrat
                 }
         };
         int getGrade() const;
+        void signForm(Form &p);
         void upGrade();
         void downGrade();
     private:
-        Bureaucrat();
         const std::string name;
         int grade;
 };
