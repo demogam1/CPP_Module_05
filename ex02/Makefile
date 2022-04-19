@@ -4,7 +4,7 @@ CC=clang++
 
 FLAG=-Wall -Werror -Wextra -std=c++98
 
-SRC=Bureaucrat.cpp Form.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp \
+SRC=Bureaucrat.cpp Form.cpp main.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp \
 
 all:$(NAME)
 

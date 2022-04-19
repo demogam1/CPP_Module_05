@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:17 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/15 00:34:17 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/19 02:28:12 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include <exception>
 #include <fstream>
 #include "Form.hpp"
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
 
 
 class Form;
@@ -28,7 +33,6 @@ class Bureaucrat
         ~Bureaucrat();
         /* END */ 
         Bureaucrat(std::string str_name, int lvl);
-        std::string getName() const;
         class GradeTooHighException : public std::exception
         {
             public:
@@ -45,6 +49,8 @@ class Bureaucrat
                     return("Erreur grade too low!");
                 }
         };
+        std::string getName() const;
+        void executeForm(Form const & form);
         int getGrade() const;
         void signForm(Form &p);
         void upGrade();

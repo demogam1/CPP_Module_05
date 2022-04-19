@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:14:02 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/16 03:02:36 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/19 04:33:39 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 Form::Form(const Form &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
 {
     this->sign = p.sign;
+}
+
+Form::Form():name(" "), req_sign(150), req_exec(150)
+{
+}
+
+Form::~Form()
+{
 }
 
 Form &Form::operator=(const Form &p)

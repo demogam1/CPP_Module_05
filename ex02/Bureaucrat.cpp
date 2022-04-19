@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/13 04:00:41 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/19 04:32:50 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &p)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat Destructor Called" << std::endl;
+    std::cout << REDB << "Bureaucrat Destructor Called" << NC << std::endl;
 }
 /*------------------END------------------*/
 Bureaucrat::Bureaucrat(std::string str_name, int lvl):name(str_name)
 {
-    std::cout << "Constructor Called" << std::endl;
+    std::cout << GRN << "Bureaucrat Constructor Called" << NC << std::endl;
     if (lvl > 150)
         throw(Bureaucrat::GradeTooLowException());
     else if (lvl < 1)
@@ -75,7 +75,10 @@ void Bureaucrat::signForm(Form &p)
         std::cout << "Grade too low" << std::endl;
     }
 }
-
+void Bureaucrat::executeForm(Form const & form)
+{
+    form.execute(*this);
+}
 std::ostream &operator<<(std::ostream &b, Bureaucrat const &c)
 {
     b << "Bureaucrat name : " << c.getName() << " Bureaucrat grade : " << c.getGrade() << std::endl;

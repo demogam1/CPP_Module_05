@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:10:28 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/16 05:17:58 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/19 04:15:28 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
+
 class Bureaucrat;
 
 class Form
 {
     public:
-        /* Forme Canonique */ 
+        /* Forme Canonique */
+        Form();
         Form(std::string str_name, int sign, int execute);
         Form(const Form &p);
         Form &operator=(const Form &p);
-        virtual ~Form() = 0;
+        virtual ~Form();
         /* END */
         /*-----------------*/
         /* Constructeur */ 
@@ -45,6 +47,7 @@ class Form
                     return("Erreur grade too low!");
                 }
         };
+        virtual void execute(Bureaucrat const & executor) const = 0;
         void beSigned(Bureaucrat &p);
         std::string getName() const;
         bool getSign() const;
