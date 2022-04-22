@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 08:25:20 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/20 01:06:19 by misaev           ###   ########.fr       */
+/*   Created: 2022/04/20 01:22:14 by misaev            #+#    #+#             */
+/*   Updated: 2022/04/22 03:13:53 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
+#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 
-int main()
+
+class RobotomyRequestForm;
+
+class Intern
 {
-    Bureaucrat titi("titi", 1);
-    // Form titi(); /* <-- cannot initialize */
-    PresidentialPardonForm pardon("Toto", 1, 1);
-    RobotomyRequestForm robot("tata", 45, 20);
-    ShrubberyCreationForm tree("tree", 100, 20);
-    // robot.beSigned(titi)
-    robot.execute(titi);
-    pardon.beSigned(titi);
-    pardon.execute(titi);
-    tree.beSigned(titi);
-    tree.execute(titi);
-    
-}
+    public:
+        Intern();
+        class NonExistingForm : public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return("This Form does not exist !");
+                }
+        };
+        ~Intern();
+        Form *makeForm(std::string form, std::string cible);
+    private:
+};

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 08:25:20 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/14 20:08:56 by misaev           ###   ########.fr       */
+/*   Created: 2022/04/15 03:16:09 by misaev            #+#    #+#             */
+/*   Updated: 2022/04/22 02:02:51 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "Bureaucrat.hpp"
 
-int main()
+class Bureaucrat;
+
+class RobotomyRequestForm : public Form
 {
-    try 
-    {
-        Bureaucrat toto("toto", 160);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    return 1;
-}
+    public:
+        RobotomyRequestForm(std::string name, int sign, int execute);
+        void execute(Bureaucrat const & executor) const;
+        std::string getName() const;
+        ~RobotomyRequestForm();
+    private:
+        const std::string name;
+        const int req_sign;
+        const int req_exec;
+};

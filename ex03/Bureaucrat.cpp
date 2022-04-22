@@ -6,17 +6,13 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/12 01:13:40 by misaev           ###   ########.fr       */
+/*   Updated: 2022/04/19 04:32:50 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 /*------------------Forme canonique------------------*/
-Bureaucrat::Bureaucrat()
-{
-    std::cout << "Bureaucrat Constructor Called" << std::endl;
-}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &p)
 {
@@ -31,12 +27,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &p)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat Destructor Called" << std::endl;
+    std::cout << REDB << "Bureaucrat Destructor Called" << NC << std::endl;
 }
 /*------------------END------------------*/
 Bureaucrat::Bureaucrat(std::string str_name, int lvl):name(str_name)
 {
-    std::cout << "Constructor Called" << std::endl;
+    std::cout << GRN << "Bureaucrat Constructor Called" << NC << std::endl;
     if (lvl > 150)
         throw(Bureaucrat::GradeTooLowException());
     else if (lvl < 1)
@@ -67,6 +63,21 @@ void Bureaucrat::downGrade()
     this->grade++;
     if (this->grade > 150)
         throw(Bureaucrat::GradeTooLowException());
+}
+
+void Bureaucrat::signForm(Form &p)
+{
+    if (p.getSign() == true)
+        std::cout << this->name << " signed " << p.getName() << std::endl;
+    else if (this->getGrade() > p.getReqExec())
+    {
+        std::cout << this->name << " couldn't sign " << p.getName() << " because ";
+        std::cout << "Grade too low" << std::endl;
+    }
+}
+void Bureaucrat::executeForm(Form const & form)
+{
+    form.execute(*this);
 }
 std::ostream &operator<<(std::ostream &b, Bureaucrat const &c)
 {
