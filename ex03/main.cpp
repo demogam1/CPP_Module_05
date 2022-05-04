@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:20 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 03:15:34 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 16:58:12 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ int main()
     Form* rrf;
     Form* toto;
     Form* titi;
-    rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-    std::cout << rrf->getName() << std::endl;
-    toto = someRandomIntern.makeForm("robotomy request", "Mender");
-    std::cout << toto->getName() << std::endl; 
-    titi = someRandomIntern.makeForm("toto", "Titi"); // <- this non existent form
-    std::cout << titi->getName() << std::endl;
+    try
+    {
+        rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+        toto = someRandomIntern.makeForm("robotomy request", "Mender");
+        titi = someRandomIntern.makeForm("toto", "Titi"); // <- this non existent form  
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:17 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 01:41:44 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 17:09:37 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Bureaucrat
 {
     public:
         /* Forme Canonique */
+        Bureaucrat();
         Bureaucrat(const Bureaucrat &p);
         Bureaucrat &operator=(const Bureaucrat &p);
         ~Bureaucrat();

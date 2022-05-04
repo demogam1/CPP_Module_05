@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 01:22:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 03:13:53 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 17:09:06 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Intern
 {
     public:
         Intern();
+        ~Intern();
         class NonExistingForm : public std::exception
         {
             public:
@@ -30,7 +31,6 @@ class Intern
                     return("This Form does not exist !");
                 }
         };
-        ~Intern();
         Form *makeForm(std::string form, std::string cible);
     private:
 };

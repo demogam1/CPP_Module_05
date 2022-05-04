@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 01:46:33 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 03:04:32 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 17:07:44 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ std::string PresidentialPardonForm::getName() const
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
-{    
+{  
 }
