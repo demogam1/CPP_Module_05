@@ -6,20 +6,34 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 01:22:04 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 03:13:36 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/05 10:29:11 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
+/*------------------Forme canonique------------------*/
 Intern::Intern()
 {
+    std::cout << "Intern Default constructor called" << std::endl;
 }
+
+Intern::Intern(const Intern &p)
+{
+    *this = p;
+}
+
+// Intern &Intern::operator=(const Intern &p)
+// {
+//     *this = p;
+//     return *this;
+// }
 
 Intern::~Intern()
 {
+    std::cout << "Intern Destructor called" << std::endl;
 }
-
+/*------------------END------------------*/
 Form *Intern::makeForm(std::string form, std::string cible)
 {
     std::string form_tab[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};

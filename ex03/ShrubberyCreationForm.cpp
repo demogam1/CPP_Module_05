@@ -6,11 +6,38 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 01:14:43 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 02:05:25 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/05 11:04:56 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
+/*------------------Forme canonique------------------*/
+
+ShrubberyCreationForm::ShrubberyCreationForm():name("Default"),req_sign(75),req_exec(45)
+{
+    std::cout << GRN << "📝 ShrubberyCreationForm Successfully created" << NC << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
+{
+    
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &p)
+{
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_exec;
+    return *this;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+    std::cout << "Default SCF destructor Called" << std::endl;
+}
+
+/*------------------END------------------*/
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int sign, int execute):name(name),req_sign(sign),req_exec(execute)
 {
@@ -22,7 +49,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int sign, int exe
     {
         throw(GradeTooLowException());
     }
-    std::cout << GRN << "📝 RobotomyRequestForm Successfully created" << NC << std::endl;
+    std::cout << GRN << "📝 ShrubberyCreationForm Successfully created" << NC << std::endl;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
@@ -59,6 +86,3 @@ std::string ShrubberyCreationForm::getName() const
     return this->name;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-}

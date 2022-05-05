@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:10:28 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/22 03:05:04 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/05 10:36:22 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class Form
         bool getSign() const;
         int getReqSign() const;
         int getReqExec() const;
-    private:
+    protected:
         const std::string name;
         bool sign;
         const int req_sign;
