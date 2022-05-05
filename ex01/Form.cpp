@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:14:02 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/12 03:55:12 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 16:13:13 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 /*------------------Forme canonique------------------*/
 
-// Form::Form() <---- doit on implementer un constructeur par defaut ???
-// {
-//     std::cout << "Form Constructor Called" << std::endl;
-// }
+Form::Form():name("default"),req_sign(150),req_exec(150) // <---- doit on implementer un constructeur par defaut ???
+{
+    std::cout << "Form Constructor Called" << std::endl;
+}
 
 Form::Form(const Form &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
 {

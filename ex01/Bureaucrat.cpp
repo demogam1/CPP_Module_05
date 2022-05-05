@@ -6,13 +6,17 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/13 04:00:41 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 17:14:57 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 /*------------------Forme canonique------------------*/
+Bureaucrat::Bureaucrat():name("Default_Bureaucrat"),grade(150)
+{
+    std::cout << GRN << "Default Bureaucrat Constructor Called" << NC << std::endl;
+}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &p)
 {
@@ -53,23 +57,26 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::upGrade()
 {
-    this->grade--;
-    if (this->grade < 1)
+    if (this->grade == 1)
         throw(Bureaucrat::GradeTooHighException());
+    else
+        this->grade--;
 }
 
 void Bureaucrat::downGrade()
 {
-    this->grade++;
-    if (this->grade > 150)
+    if (this->grade == 150)
         throw(Bureaucrat::GradeTooLowException());
+    else
+        this->grade++;
 }
+
 
 void Bureaucrat::signForm(Form &p)
 {
     if (p.getSign() == true)
         std::cout << this->name << " signed " << p.getName() << std::endl;
-    else if (this->getGrade() > p.getReqExec())
+    else if (this->getGrade() > p.getReqSign())
     {
         std::cout << this->name << " couldn't sign " << p.getName() << " because ";
         std::cout << "Grade too low" << std::endl;

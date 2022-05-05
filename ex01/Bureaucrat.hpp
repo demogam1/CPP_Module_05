@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:17 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/12 03:57:18 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/05 12:12:50 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include <iostream>
 #include <exception>
 #include "Form.hpp"
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
 
 
 class Form;
@@ -22,6 +27,7 @@ class Bureaucrat
 {
     public:
         /* Forme Canonique */
+        Bureaucrat();
         Bureaucrat(const Bureaucrat &p);
         Bureaucrat &operator=(const Bureaucrat &p);
         ~Bureaucrat();

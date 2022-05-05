@@ -6,18 +6,24 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:17 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/06 18:53:15 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/05 12:13:50 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <exception>
 #include <iostream>
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
 
 class Bureaucrat
 {
     public:
         /* Forme Canonique */
+        Bureaucrat();
         Bureaucrat(const Bureaucrat &p);
         Bureaucrat &operator=(const Bureaucrat &p);
         ~Bureaucrat();
@@ -44,8 +50,8 @@ class Bureaucrat
         void upGrade();
         void downGrade();
     private:
-        Bureaucrat();
         const std::string name;
         int grade;
 };
+
 std::ostream &operator<<(std::ostream &b, Bureaucrat const &c);

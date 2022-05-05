@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:10:28 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/12 03:57:28 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/04 16:13:27 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Form
 {
     public:
         /* Forme Canonique */ 
+        Form();
         Form(const Form &p);
         Form &operator=(const Form &p);
         ~Form();
