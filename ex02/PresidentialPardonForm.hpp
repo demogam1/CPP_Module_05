@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 01:46:54 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/19 03:49:40 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 13:17:45 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ class Bureaucrat;
 class PresidentialPardonForm : public Form
 {
     public:
-        PresidentialPardonForm(std::string name, int sign, int exec);
-        void execute(Bureaucrat const & executor) const;
+        PresidentialPardonForm(std::string name);
         ~PresidentialPardonForm();
+        void execute(Bureaucrat const & executor) const;
+        int getReqSign() const;
+        int getReqExec() const;
     private:
-        const std::string name;
-        const int req_sign;
-        const int req_exec;
+        std::string name;
+        int req_sign;
+        int req_exec;
 };

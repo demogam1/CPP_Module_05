@@ -6,22 +6,17 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 01:14:43 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/20 01:02:01 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 13:19:11 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int sign, int execute):name(name),req_sign(sign),req_exec(execute)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name)
 {
-    if (this->req_sign > 145)
-    {
-        throw(GradeTooLowException());
-    }
-    else if (this->req_exec > 137)
-    {
-        throw(GradeTooLowException());
-    }
+    this->name = name;
+    this->req_exec = 145;
+    this->req_sign = 137;
     std::cout << GRN << "📝 RobotomyRequestForm Successfully created" << NC << std::endl;
 }
 
@@ -53,6 +48,17 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     else
         std::cout << RED << this->name << "is not signed !" << NC << std::endl;
 }
+
+int ShrubberyCreationForm::getReqSign() const
+{
+    return this->req_sign;
+}
+
+int ShrubberyCreationForm::getReqExec() const
+{
+    return this->req_exec;    
+}
+
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {

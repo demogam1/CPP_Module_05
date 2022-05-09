@@ -6,22 +6,17 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 03:16:06 by misaev            #+#    #+#             */
-/*   Updated: 2022/04/20 01:01:54 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 13:19:21 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, int sign, int execute):name(name),req_sign(sign),req_exec(execute)
+RobotomyRequestForm::RobotomyRequestForm(std::string name)
 {
-    if (this->req_sign > 75)
-    {
-        throw(GradeTooLowException());
-    }
-    else if (this->req_exec > 45)
-    {
-        throw(GradeTooLowException());
-    }
+    this->name = name;
+    this->req_exec = 45;
+    this->req_sign = 72;
     std::cout << GRN << "📝 RobotomyRequestForm Successfully created" << NC << std::endl;
 }
 
@@ -44,6 +39,16 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     }
     else
         std::cout << RED << this->name << "is not signed !" << NC << std::endl;
+}
+
+int RobotomyRequestForm::getReqSign() const
+{
+    return this->req_sign;
+}
+
+int RobotomyRequestForm::getReqExec() const
+{
+    return this->req_exec;    
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()

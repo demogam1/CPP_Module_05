@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:20 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/04 16:54:52 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:35:39 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,22 @@
 
 int main()
 {
-    Bureaucrat titi("titi", 1);
     // Form titi(); /* <-- cannot initialize */
-    PresidentialPardonForm pardon("Toto", 1, 1);
-    RobotomyRequestForm robot("tata", 45, 20);
-    ShrubberyCreationForm tree("tree", 100, 20);
-    robot.beSigned(titi);
-    robot.execute(titi);
-    pardon.beSigned(titi);
-    pardon.execute(titi);
-    tree.beSigned(titi);
-    tree.execute(titi);
-    
+    PresidentialPardonForm pardon("Toto");
+    RobotomyRequestForm robot("tata");
+    ShrubberyCreationForm tree("tree");
+    try
+    {        
+        Bureaucrat titi("titi", 1);
+        pardon.beSigned(titi);
+        titi.executeForm(pardon);
+        tree.beSigned(titi);
+        titi.executeForm(tree);
+        robot.beSigned(titi);
+        titi.executeForm(robot);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
