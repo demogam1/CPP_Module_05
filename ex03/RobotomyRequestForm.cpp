@@ -6,49 +6,47 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 03:16:06 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/05 11:04:23 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 16:19:28 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 /*------------------Forme canonique------------------*/
-
-RobotomyRequestForm::RobotomyRequestForm():name("Default"),req_sign(75),req_exec(45)
+RobotomyRequestForm::RobotomyRequestForm()
 {
+    this->name = "Default";
+    this->req_exec = 5;
+    this->req_sign = 25;
     std::cout << GRN << "📝 RobotomyRequestForm Successfully created" << NC << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
-{
-    
-}
-
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &p)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &p)
 {
     this->name = p.name;
     this->req_exec = p.req_exec;
-    this->req_sign = p.req_exec;
+    this->req_sign = p.req_sign;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &p)
+{    
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
     return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Default RRF destructor Called" << std::endl;
+    std::cout << RED << "❌ RobotomyRequestForm Destructor Called" << NC << std::endl;   
 }
-
 /*------------------END------------------*/
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, int sign, int execute):name(name),req_sign(sign),req_exec(execute)
+RobotomyRequestForm::RobotomyRequestForm(std::string name)
 {
-    if (this->req_sign > 75)
-    {
-        throw(GradeTooLowException());
-    }
-    else if (this->req_exec > 45)
-    {
-        throw(GradeTooLowException());
-    }
+    this->name = name;
+    this->req_exec = 45;
+    this->req_sign = 72;
     std::cout << GRN << "📝 RobotomyRequestForm Successfully created" << NC << std::endl;
 }
 
@@ -71,6 +69,16 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     }
     else
         std::cout << RED << this->name << "is not signed !" << NC << std::endl;
+}
+
+int RobotomyRequestForm::getReqSign() const
+{
+    return this->req_sign;
+}
+
+int RobotomyRequestForm::getReqExec() const
+{
+    return this->req_exec;    
 }
 
 std::string RobotomyRequestForm::getName() const

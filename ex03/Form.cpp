@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:14:02 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/05 09:09:24 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 11:39:13 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*------------------Forme canonique------------------*/
 Form::Form():name(" "), req_sign(150), req_exec(150)
 {
-    std::cout << "Form Default constructor called" << std::endl;
     this->sign = false;
 }
 
@@ -26,7 +25,6 @@ Form::Form(const Form &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
 
 Form::~Form()
 {
-    std::cout << "Form Default constructor called" << std::endl;
 }
 
 Form &Form::operator=(const Form &p)

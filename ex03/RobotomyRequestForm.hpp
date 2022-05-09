@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 03:16:09 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/05 11:03:30 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 16:13:01 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ class RobotomyRequestForm : public Form
         RobotomyRequestForm &operator=(const RobotomyRequestForm &p);
         ~RobotomyRequestForm();
         /* END */
-        RobotomyRequestForm(std::string name, int sign, int execute);
-        void execute(Bureaucrat const & executor) const;
+        RobotomyRequestForm(std::string name);
         std::string getName() const;
+        int getReqSign() const;
+        int getReqExec() const;
+        void execute(Bureaucrat const & executor) const;
     private:
         std::string name;
         int req_sign;

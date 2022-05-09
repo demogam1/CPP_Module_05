@@ -6,26 +6,30 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 01:46:33 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/05 11:06:02 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 16:19:27 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 /*------------------Forme canonique------------------*/
-
-PresidentialPardonForm::PresidentialPardonForm():name("Default"),req_sign(25),req_exec(5)
+PresidentialPardonForm::PresidentialPardonForm()
 {
+    this->name = "Default";
+    this->req_exec = 5;
+    this->req_sign = 25;
     std::cout << GRN << "📝 PresidentialPardonForm Successfully created" << NC << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &p):name(p.name),req_sign(p.req_sign),req_exec(p.req_exec)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &p)
 {
-   
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &p)
-{
+{    
     this->name = p.name;
     this->req_exec = p.req_exec;
     this->req_sign = p.req_sign;
@@ -34,19 +38,16 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << "Default PPF destructor Called" << std::endl;
+    std::cout << RED << "❌ PresidentialPardonForm Destructor Called" << NC << std::endl;   
 }
 /*------------------END------------------*/
-PresidentialPardonForm::PresidentialPardonForm(std::string name, int sign, int exec):name(name),req_sign(sign),req_exec(exec)
+
+
+PresidentialPardonForm::PresidentialPardonForm(std::string name)
 {
-    if (this->req_sign > 25)
-    {
-        throw(GradeTooLowException());
-    }
-    else if (this->req_exec > 5)
-    {
-        throw(GradeTooLowException());
-    }
+    this->name = name;
+    this->req_exec = 5;
+    this->req_sign = 25;
     std::cout << GRN << "📝 PresidentialPardonForm Successfully created" << NC << std::endl;
 }
 
@@ -54,13 +55,23 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (this->getSign() == true)
     {
-        if (executor.getGrade() < this->getReqExec())
+        if (executor.getGrade() <= this->req_exec)
             std::cout << this->name << CYN <<  " has got the Zaphod Beeblebrox pardon" << NC << std::endl;
         else
             throw(GradeTooLowException());
     }
     else
         std::cout << RED << this->name << "is not signed !" << NC << std::endl;
+}
+
+int PresidentialPardonForm::getReqSign() const
+{
+    return this->req_sign;
+}
+
+int PresidentialPardonForm::getReqExec() const
+{
+    return this->req_exec;    
 }
 
 std::string PresidentialPardonForm::getName() const
