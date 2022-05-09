@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 00:10:28 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 11:09:42 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:50:37 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ class Form
         };
         virtual void execute(Bureaucrat const & executor) const = 0;
         void beSigned(Bureaucrat &p);
-        std::string getName() const;
+        virtual std::string getName() const;
         bool getSign() const;
-        int getReqSign() const;
-        int getReqExec() const;
+        virtual int getReqSign() const;
+        virtual int getReqExec() const;
     private:
         const std::string name;
         bool sign;

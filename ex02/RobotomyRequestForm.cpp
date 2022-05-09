@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 03:16:06 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 13:19:21 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:49:53 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int RobotomyRequestForm::getReqSign() const
 int RobotomyRequestForm::getReqExec() const
 {
     return this->req_exec;    
+}
+
+std::string RobotomyRequestForm::getName() const
+{
+    return this->name;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()

@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 01:46:33 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 14:32:32 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:49:57 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int PresidentialPardonForm::getReqExec() const
     return this->req_exec;    
 }
 
+std::string PresidentialPardonForm::getName() const
+{
+    return this->name;
+}
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {    

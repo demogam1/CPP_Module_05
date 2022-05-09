@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:20 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 14:35:39 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:54:03 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int main()
 {
     // Form titi(); /* <-- cannot initialize */
     PresidentialPardonForm pardon("Toto");
-    RobotomyRequestForm robot("tata");
-    ShrubberyCreationForm tree("tree");
+    RobotomyRequestForm robot("Tata");
+    ShrubberyCreationForm tree("Tree");
     try
     {        
-        Bureaucrat titi("titi", 1);
+        Bureaucrat titi("titi", 150);
         pardon.beSigned(titi);
         titi.executeForm(pardon);
         tree.beSigned(titi);

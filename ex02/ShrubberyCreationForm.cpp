@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 01:14:43 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 13:19:11 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:49:49 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ int ShrubberyCreationForm::getReqExec() const
     return this->req_exec;    
 }
 
+std::string ShrubberyCreationForm::getName() const
+{
+    return this->name;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {

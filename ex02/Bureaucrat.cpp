@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 13:02:52 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 14:48:18 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,15 @@ void Bureaucrat::signForm(Form &p)
 
 void Bureaucrat::executeForm(Form const & form)
 {
-    form.execute(*this);
+    try
+    {
+        form.execute(*this);
+        std::cout << this->name << " executed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 std::ostream &operator<<(std::ostream &b, Bureaucrat const &c)
