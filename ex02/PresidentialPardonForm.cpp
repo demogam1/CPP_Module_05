@@ -6,11 +6,42 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 01:46:33 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 14:49:57 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 16:19:27 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+/*------------------Forme canonique------------------*/
+PresidentialPardonForm::PresidentialPardonForm()
+{
+    this->name = "Default";
+    this->req_exec = 5;
+    this->req_sign = 25;
+    std::cout << GRN << "📝 PresidentialPardonForm Successfully created" << NC << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &p)
+{
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
+}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &p)
+{    
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
+    return *this;
+}
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+    std::cout << RED << "❌ PresidentialPardonForm Destructor Called" << NC << std::endl;   
+}
+/*------------------END------------------*/
+
 
 PresidentialPardonForm::PresidentialPardonForm(std::string name)
 {
@@ -46,8 +77,4 @@ int PresidentialPardonForm::getReqExec() const
 std::string PresidentialPardonForm::getName() const
 {
     return this->name;
-}
-
-PresidentialPardonForm::~PresidentialPardonForm()
-{    
 }

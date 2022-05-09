@@ -6,11 +6,41 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 03:16:06 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 14:49:53 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 16:19:28 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+/*------------------Forme canonique------------------*/
+RobotomyRequestForm::RobotomyRequestForm()
+{
+    this->name = "Default";
+    this->req_exec = 5;
+    this->req_sign = 25;
+    std::cout << GRN << "📝 RobotomyRequestForm Successfully created" << NC << std::endl;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &p)
+{
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &p)
+{    
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
+    return *this;
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+    std::cout << RED << "❌ RobotomyRequestForm Destructor Called" << NC << std::endl;   
+}
+/*------------------END------------------*/
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name)
 {
@@ -54,8 +84,4 @@ int RobotomyRequestForm::getReqExec() const
 std::string RobotomyRequestForm::getName() const
 {
     return this->name;
-}
-
-RobotomyRequestForm::~RobotomyRequestForm()
-{
 }

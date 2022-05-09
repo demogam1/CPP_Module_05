@@ -6,11 +6,41 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 01:14:43 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 14:49:49 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/09 16:19:30 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
+/*------------------Forme canonique------------------*/
+ShrubberyCreationForm::ShrubberyCreationForm()
+{
+    this->name = "Default";
+    this->req_exec = 5;
+    this->req_sign = 25;
+    std::cout << GRN << "📝 ShrubberyCreationForm Successfully created" << NC << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &p)
+{
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &p)
+{    
+    this->name = p.name;
+    this->req_exec = p.req_exec;
+    this->req_sign = p.req_sign;
+    return *this;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+    std::cout << RED << "❌ ShrubberyCreationForm Destructor Called" << NC << std::endl;   
+}
+/*------------------END------------------*/
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name)
 {
@@ -62,8 +92,4 @@ int ShrubberyCreationForm::getReqExec() const
 std::string ShrubberyCreationForm::getName() const
 {
     return this->name;
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
 }
