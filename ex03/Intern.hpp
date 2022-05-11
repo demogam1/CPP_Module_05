@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 01:22:14 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/05 10:29:14 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/11 11:19:21 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ class Intern
                 }
         };
         Form *makeForm(std::string form, std::string cible);
+    private:
+        Form **db;
 };

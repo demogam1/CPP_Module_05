@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 08:25:17 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/04 17:14:20 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/11 10:18:14 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <iostream>
 #include <exception>
 #include <fstream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 #include "Form.hpp"
 #define NC "\e[0m"
 #define RED "\e[0;31m"

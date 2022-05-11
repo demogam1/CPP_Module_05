@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 01:22:04 by misaev            #+#    #+#             */
-/*   Updated: 2022/05/09 16:25:37 by misaev           ###   ########.fr       */
+/*   Updated: 2022/05/11 10:53:00 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,20 @@ Form *Intern::makeForm(std::string form, std::string cible)
     switch (i)
     {
         case 0:
-            return new RobotomyRequestForm(cible);
+        {
+            this->db[0] = new RobotomyRequestForm(cible);
+            return this->db[0];
+        }
         case 1:
-            return new PresidentialPardonForm(cible);
+        {
+            this->db[1] = new PresidentialPardonForm(cible);
+            return this->db[1];
+        }
         case 2:
-            return new ShrubberyCreationForm(cible);
+        {
+            this->db[2] = new ShrubberyCreationForm(cible);
+            return this->db[2];
+        }
         default:
             throw(NonExistingForm());
     }
